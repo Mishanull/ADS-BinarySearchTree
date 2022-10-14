@@ -5,6 +5,15 @@ public class BinaryTreeNode<E> {
      BinaryTreeNode<E> rightChild;
      BinaryTreeNode<E> leftChild;
 
+    public BinaryTreeNode() {
+    }
+
+    public BinaryTreeNode(E element) {
+        this.element = element;
+        leftChild=null;
+        rightChild=null;
+    }
+
     public E getElement() {
         return element;
     }
@@ -27,5 +36,10 @@ public class BinaryTreeNode<E> {
 
     public void setLeftChild(BinaryTreeNode<E> leftChild) {
         this.leftChild = leftChild;
+    }
+
+    @Override
+    public String toString() {
+        return element.toString()+" ";
     }
 }
