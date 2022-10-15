@@ -35,12 +35,10 @@ public class BinaryTree<E> {
             System.out.println("Empty tree");
             return false;
         }
-
         if (e.equals(current.getElement())) {
             aux=true;
         }
-
-        if (current.leftChild != null) {
+        if (!aux && current.leftChild != null) {
             aux = contains(current.leftChild, e);
         }
         if (!aux && current.rightChild != null) {

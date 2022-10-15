@@ -84,19 +84,22 @@ public class BinaryTreeTests {
         double b=23.1;
         double c=76.23;
         double d=87.6;
+        double e=90.8;
         BinaryTreeNode<Double> node=new BinaryTreeNode<>();
         BinaryTreeNode<Double> node2=new BinaryTreeNode<>();
         BinaryTreeNode<Double> node3=new BinaryTreeNode<>();
         BinaryTreeNode<Double> node4=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node5=new BinaryTreeNode<>();
         node.setElement(a);
         node2.setElement(b);
         node3.setElement(c);
         node4.setElement(d);
+        node5.setElement(e);
         node.setLeftChild(node2);
         node.setRightChild(node3);
         node3.setLeftChild(node4);
         binaryTree.setRoot(node);
         System.out.println(binaryTree.getSize(binaryTree.getRoot()));
-        Assert.assertFalse(binaryTree.contains(binaryTree.getRoot(),90.8));
+        Assert.assertFalse(binaryTree.contains(binaryTree.getRoot(),e));
     }
 }
