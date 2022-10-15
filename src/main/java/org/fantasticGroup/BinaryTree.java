@@ -9,13 +9,8 @@ public class BinaryTree<E> {
         root = null;
     }
 
-    public BinaryTree(int size) {
-        this.size = size;
-    }
-
-    public BinaryTree(BinaryTreeNode<E> root, int size) {
+    public BinaryTree(BinaryTreeNode<E> root) {
         this.root = root;
-        this.size = size;
     }
 
     public BinaryTreeNode<E> getRoot() {
