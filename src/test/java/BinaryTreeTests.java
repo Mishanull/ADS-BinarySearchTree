@@ -96,6 +96,7 @@ public class BinaryTreeTests {
         node.setRightChild(node3);
         node3.setLeftChild(node4);
         binaryTree.setRoot(node);
+        System.out.println(binaryTree.getSize(binaryTree.getRoot()));
         Assert.assertFalse(binaryTree.contains(binaryTree.getRoot(),90.8));
     }
 }

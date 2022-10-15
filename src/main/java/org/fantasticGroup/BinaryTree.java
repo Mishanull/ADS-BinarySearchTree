@@ -28,24 +28,11 @@ public class BinaryTree<E> {
 
     public int getSize(BinaryTreeNode<E> current) {
         if(current==null){
-            return size;
+            return 0;
         }
-        if( current.element!=null ){
-            return 1;
-        }
-        if(current.leftChild!=null){
-            size+=getSize(current.leftChild);
-        }
-        if(current.rightChild!=null){
-            size+=getSize(current.rightChild);
-        }
-        return size;
-    }
+        else return getSize(current.leftChild)+1+getSize(current.rightChild);
 
-    public void setSize(int size) {
-        this.size = size;
     }
-
 
     public boolean contains(BinaryTreeNode<E> current, E e) {
         boolean aux = false;
@@ -53,18 +40,18 @@ public class BinaryTree<E> {
             System.out.println("Empty tree");
             return false;
         }
-        else {
-            if (e.equals(current.getElement())) {
-                aux=true;
-            }
 
-            if (current.leftChild != null) {
-                aux = contains(current.leftChild, e);
-            }
-            if (!aux && current.rightChild != null) {
-                aux = contains(current.rightChild, e);
-            }
+        if (e.equals(current.getElement())) {
+            aux=true;
         }
+
+        if (current.leftChild != null) {
+            aux = contains(current.leftChild, e);
+        }
+        if (!aux && current.rightChild != null) {
+            aux = contains(current.rightChild, e);
+        }
+
         return aux;
     }
 }
