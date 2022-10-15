@@ -26,7 +26,19 @@ public class BinaryTree<E> {
         this.root = root;
     }
 
-    public int getSize() {
+    public int getSize(BinaryTreeNode<E> current) {
+        if(current==null){
+            return size;
+        }
+        if( current.element!=null ){
+            return 1;
+        }
+        if(current.leftChild!=null){
+            size+=getSize(current.leftChild);
+        }
+        if(current.rightChild!=null){
+            size+=getSize(current.rightChild);
+        }
         return size;
     }
 

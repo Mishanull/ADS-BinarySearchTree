@@ -16,16 +16,14 @@ public class BinaryTreeTests {
     }
     @Test
     public void sizeIfEmpty(){
-        Assert.assertEquals(0, binaryTree.getSize());
+        Assert.assertEquals(0, binaryTree.getSize(binaryTree.getRoot()));
     }
     @Test
     public void sizeAfterAddingOneElement(){
         int i=1;
         BinaryTreeNode<Integer> node=new BinaryTreeNode<>(i);
         binaryTree.setRoot(node);
-        int size= binaryTree.getSize();
-        binaryTree.setSize(++size);
-        Assert.assertEquals(1,binaryTree.getSize());
+        Assert.assertEquals(1,binaryTree.getSize(binaryTree.getRoot()));
     }
     @Test
     public void getRootCorrect(){
