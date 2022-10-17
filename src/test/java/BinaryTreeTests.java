@@ -102,4 +102,33 @@ public class BinaryTreeTests {
         System.out.println(binaryTree.getSize(binaryTree.getRoot()));
         Assert.assertFalse(binaryTree.contains(binaryTree.getRoot(),e));
     }
+
+    @Test
+    public void returnsHeightCorrect(){
+        double a=12.5;
+        double b=23.1;
+        double c=76.23;
+        double d=87.6;
+        double e=90.8;
+        BinaryTreeNode<Double> node=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node2=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node3=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node4=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node5=new BinaryTreeNode<>();
+        BinaryTreeNode<Double> node6=new BinaryTreeNode<>(20.4);
+        BinaryTreeNode<Double> node7=new BinaryTreeNode<>(12.7);
+        node.setElement(a);
+        node2.setElement(b);
+        node3.setElement(c);
+        node4.setElement(d);
+        node5.setElement(e);
+        node.setLeftChild(node2);
+        node.setRightChild(node3);
+        node3.setLeftChild(node4);
+        node4.setLeftChild(node5);
+//        node4.setRightChild(node6);
+//        node6.setRightChild(node7);
+        binaryTree.setRoot(node);
+        Assert.assertEquals(3,binaryTree.depth(binaryTree.getRoot()));
+    }
 }
