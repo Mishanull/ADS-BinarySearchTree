@@ -66,7 +66,7 @@ public class BinaryTree<E> {
         return inOrder(elements, root);
     }
 
-    private ArrayList<E> inOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
+    protected ArrayList<E> inOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
         if(current == null) {
             return list;
         }
@@ -81,7 +81,7 @@ public class BinaryTree<E> {
         return preOrder(elements, root);
     }
 
-    private ArrayList<E> preOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
+    protected ArrayList<E> preOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
         if(current == null) {
             return list;
         }
@@ -96,7 +96,7 @@ public class BinaryTree<E> {
         return postOrder(elements, root);
     }
 
-    private ArrayList<E> postOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
+    protected ArrayList<E> postOrder(ArrayList<E> list, BinaryTreeNode<E> current) {
         if(current == null) {
             return list;
         }

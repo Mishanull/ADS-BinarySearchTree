@@ -282,6 +282,6 @@ public class BinaryTreeTests {
 //        node4.setRightChild(node6);
 //        node6.setRightChild(node7);
         binaryTree.setRoot(node);
-        Assert.assertEquals(3,binaryTree.depth(binaryTree.getRoot()));
+        Assert.assertEquals(4,binaryTree.depth(binaryTree.getRoot()));
     }
 }

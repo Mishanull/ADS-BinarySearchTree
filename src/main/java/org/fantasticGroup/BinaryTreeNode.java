@@ -40,6 +40,7 @@ public class BinaryTreeNode<E> {
 
     @Override
     public String toString() {
+        if(element==null) return "no element";
         return element.toString()+" ";
     }
 }
