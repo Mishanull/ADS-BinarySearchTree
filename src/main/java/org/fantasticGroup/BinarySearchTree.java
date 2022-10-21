@@ -121,8 +121,8 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
     public E findMin(){
         return findMin(root);
     }
-    //Using DSW Algorithm to rebalance the tree
-    //Method to convert tree to a right linked list or "vine"
+
+    //Method to convert tree to a right linked list or "vine" or right tilted tree
     private int treeToVine(BinarySearchTreeNode<E> current){
         int i=0;
         BinarySearchTreeNode<E> aux=current.rightChild;
@@ -143,7 +143,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
         }
         return i;
     }
-
+    //method to left rotate each node on the vine
     private void compressVine(BinarySearchTreeNode<E> current, int m){
         BinarySearchTreeNode<E> aux=current.rightChild;
 
@@ -157,7 +157,9 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
             aux=aux.rightChild;
         }
     }
-    public BinarySearchTreeNode<E> rebalance(BinarySearchTreeNode<E> current){
+    //Implementing DSW Algorithm to rebalance the tree
+    //After this operation, the tree will be a complete balanced binary tree
+    protected BinarySearchTreeNode<E> rebalance(BinarySearchTreeNode<E> current){
         BinarySearchTreeNode<E> aux=new BinarySearchTreeNode<>();
         aux.rightChild=current;
         int i=treeToVine(aux);
