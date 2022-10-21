@@ -109,6 +109,49 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
         return true;
     }
 
+    public boolean remove(E element) {
+        if (!contains(element)) {
+            return false;
+        }
+        remove(root, element);
+        return true;
+    }
+
+    private void remove(BinarySearchTreeNode<E> current, E element) {
+        if (element.compareTo(current.getElement()) > 0) {
+            if (element.compareTo(current.getRightChild().getElement()) == 0) {
+                BinaryTreeNode<E> tmpLeft = current.getRightChild().getLeftChild();
+                BinaryTreeNode<E> tmpRight = current.getRightChild().getRightChild();
+                current.setRightChild(null);
+
+                if (tmpLeft != null) {
+                    insert(tmpLeft.getElement(),current);
+                }
+                if (tmpRight != null) {
+                    insert(tmpRight.getElement(),current);
+                }
+            } else {
+                remove(current.getRightChild(), element);
+            }
+        } else {
+            if (element.compareTo(current.getLeftChild()
+                    .getElement()) == 0) {
+                BinaryTreeNode<E> tmpLeft = current.getLeftChild().getLeftChild();
+                BinaryTreeNode<E> tmpRight = current.getLeftChild().getRightChild();
+                current.setLeftChild(null);
+
+                if (tmpRight != null) {
+                    insert(tmpRight.getElement(), current);
+                }
+                if (tmpLeft != null) {
+                    insert(tmpLeft.getElement(), current);
+                }
+            } else {
+                remove(current.getLeftChild(), element);
+            }
+        }
+    }
+
     public E findMin(BinarySearchTreeNode<E> current) {
         if(current==null){
             return null;
@@ -143,6 +186,18 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
         }
         return i;
     }
+
+    public E findMax() {
+        if (getRoot() == null) {
+            return null;
+        }
+        BinaryTreeNode<E> current = getRoot();
+        while (current.getRightChild() != null) {
+            current = current.getRightChild();
+        }
+        return current.getElement();
+    }
+
     //method to left rotate each node on the vine
     private void compressVine(BinarySearchTreeNode<E> current, int m){
         BinarySearchTreeNode<E> aux=current.rightChild;

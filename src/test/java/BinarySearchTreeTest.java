@@ -30,6 +30,27 @@ public class BinarySearchTreeTest {
         bst.insert(8);
         Assert.assertFalse(bst.insert(4));
     }
+
+    @Test
+    public void remove1() {
+        bst.insert(2);
+        bst.insert(4);
+        bst.insert(1);
+        bst.insert(3);
+        Assert.assertTrue(bst.remove(3));
+        Assert.assertNull(bst.getRoot().getRightChild().getLeftChild());
+    }
+
+    @Test
+    public void remove2() {
+        bst.insert(2);
+        bst.insert(4);
+        bst.insert(1);
+        bst.insert(3);
+        Assert.assertTrue(bst.remove(4));
+        Assert.assertEquals(3, bst.getRoot().getRightChild().getElement());
+    }
+
     @Test
     public void containsTrue(){
 
@@ -57,6 +78,17 @@ public class BinarySearchTreeTest {
         bst.insert(27.6);
         Assert.assertEquals(0.5,bst.findMin());
     }
+
+    @Test
+    public void findMaxOneElements() {
+        bst.insert(1);
+        bst.insert(2);
+        bst.insert(4);
+        bst.insert(10);
+        bst.insert(3);
+        Assert.assertEquals(10, bst.findMax());
+    }
+
     @Test
     public void findMinEmptyTree(){
         Assert.assertEquals(null,bst.findMin());
